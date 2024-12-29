@@ -1,0 +1,44 @@
+// Listado de casas (puedes hacer que este listado venga de una base de datos)
+const houses = [
+  {
+    title: "Casa Moderna en Zapopan",
+    description: "Hermosa casa con jardín amplio y 3 recámaras.",
+    image: "https://via.placeholder.com/300",
+    price: "$1,500,000 MXN",
+  },
+  {
+    title: "Departamento en Guadalajara Centro",
+    description: "Ubicación excelente, ideal para vivir cerca de todo.",
+    image: "https://via.placeholder.com/300",
+    price: "$950,000 MXN",
+  },
+  {
+    title: "Casa en El Bosque",
+    description: "Casa con seguridad privada y gran jardín.",
+    image: "https://via.placeholder.com/300",
+    price: "$2,300,000 MXN",
+  }
+];
+
+// Función para renderizar casas disponibles
+function renderHouses() {
+  const houseList = document.getElementById('house-list');
+  houseList.innerHTML = '';
+
+  houses.forEach(house => {
+    const houseItem = document.createElement('div');
+    houseItem.classList.add('house-item');
+    
+    houseItem.innerHTML = `
+      <img src="${house.image}" alt="Casa">
+      <h3>${house.title}</h3>
+      <p>${house.description}</p>
+      <p><strong>${house.price}</strong></p>
+    `;
+    
+    houseList.appendChild(houseItem);
+  });
+}
+
+// Llamar la función para renderizar casas al cargar la página
+document.addEventListener('DOMContentLoaded', renderHouses);
